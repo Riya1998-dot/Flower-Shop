@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloom Flower Shop</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#fff8f8;
+    color:#333;
+}
+
+header{
+    background:#ff4f81;
+    color:white;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+.hero{
+    height:80vh;
+    background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+    url('https://images.unsplash.com/photo-1526045612212-70caf35c14df');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    font-size:20px;
+    margin-bottom:20px;
+}
+
+.btn{
+    background:#ff4f81;
+    color:white;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.products{
+    padding:60px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:36px;
+    color:#ff4f81;
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+    text-align:center;
+}
+
+.card-content h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#ff4f81;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+button{
+    background:#ff4f81;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+.about{
+    padding:60px 8%;
+    background:#ffe6ef;
+    text-align:center;
+}
+
+.contact{
+    padding:60px 8%;
+}
+
+.contact form{
+    max-width:600px;
+    margin:auto;
+}
+
+input, textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+footer{
+    background:#ff4f81;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.cart{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:white;
+    padding:10px 20px;
+    border-radius:30px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="cart">
+🛒 Cart: <span id="cart-count">0</span>
+</div>
+
+<header>
+    <div class="logo">🌸 Bloom Flower Shop</div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#products">Flowers</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Fresh Flowers Delivered</h1>
+        <p>Beautiful bouquets for every occasion</p>
+        <a href="#products" class="btn">Shop Now</a>
+    </div>
+</section>
+
+<section class="products" id="products">
+    <h2 class="section-title">Our Flowers</h2>
+
+    <div class="product-grid">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac" alt="">
+            <div class="card-content">
+                <h3>Rose Bouquet</h3>
+                <div class="price">₹599</div>
+                <button onclick="addToCart()">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa" alt="">
+            <div class="card-content">
+                <h3>Tulip Collection</h3>
+                <div class="price">₹799</div>
+                <button onclick="addToCart()">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946" alt="">
+            <div class="card-content">
+                <h3>Mixed Bouquet</h3>
+                <div class="price">₹999</div>
+                <button onclick="addToCart()">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="about" id="about">
+    <h2 class="section-title">About Us</h2>
+    <p>
+        Bloom Flower Shop provides fresh flowers, bouquets, gifts,
+        and same-day delivery services. We make every celebration
+        more beautiful with premium floral arrangements.
+    </p>
+</section>
+
+<section class="contact" id="contact">
+    <h2 class="section-title">Contact Us</h2>
+
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 Bloom Flower Shop | All Rights Reserved</p>
+</footer>
+
+<script>
+let cart = 0;
+
+function addToCart(){
+    cart++;
+    document.getElementById("cart-count").innerText = cart;
+    alert("Flower added to cart!");
+}
+</script>
+
+</body>
+</html>
